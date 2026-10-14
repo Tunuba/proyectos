@@ -42,6 +42,14 @@ PROYECTOS = [
          desc='Hice un motor que genera pixel art por código, desde personajes animados hasta edificios y efectos. Con él armé '
               'una ciudad que crece sola y que se puede recorrer en 3D.',
          tec=['Python', 'Pillow', 'JavaScript', 'Three.js']),
+    dict(id='boundlessroom', nombre='BoundlessRoom', anio='2026', tipo='Proyecto propio', led='#C23BFF', otro=True,
+         desc='Hice un juego de terror en Roblox para 1 a 4 jugadores, en un circo abandonado con ocho recuerdos para explorar. '
+              'La muñeca solo se mueve cuando nadie la ve, así que cada parpadeo la acerca.',
+         tec=['Roblox Studio', 'Luau', 'Blender']),
+    dict(id='pulsos', nombre='Pulsos', anio='2026', tipo='Proyecto propio', led='#FF8A1F', otro=True,
+         desc='Hice un juego de vencidas en Roblox, con 25 mesas en una feria, rivales controlados por la computadora '
+              'y partidas para dos jugadores. Gana quien pulsa más rápido.',
+         tec=['Roblox Studio', 'Luau']),
     dict(id='mipix', nombre='MIPIX', anio='2025', tipo='Proyecto propio', led='#29D9E8', otro=True,
          desc='Hice una plataforma web de videojuegos con registro de usuarios, panel personal y un centro con varios juegos, '
               'entre ellos un shooter multijugador en tiempo real.',
