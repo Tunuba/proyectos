@@ -11,7 +11,7 @@ from PIL import Image
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 e = html.escape
 
-# Cada proyecto tiene el color de su LED en la cabecera; lo identifica en toda la pagina.
+# Cada proyecto tiene su color (el de un LED); marca su punto y su miniatura activa.
 PROYECTOS = [
     dict(id='ledkid', nombre='LEDKID', anio='2026', tipo='Proyecto propio', led='#FFB21A',
          desc='Plataforma para enseñar robótica en colegios. El alumno arma circuitos con piezas reales, '
@@ -76,12 +76,6 @@ def capturas(pid):
     return salida
 
 
-def led_html(p, i):
-    return (f'<a class="led" href="#{p["id"]}" style="--c:{p["led"]};--i:{i}">'
-            f'<span class="bombillo" aria-hidden="true"></span><span class="patas" aria-hidden="true"></span>'
-            f'<span class="nom">{e(p.get("corto", p["nombre"]))}</span></a>')
-
-
 def modulo(p, lado):
     fotos = capturas(p['id'])
     f0 = fotos[0]
@@ -121,7 +115,6 @@ def modulo(p, lado):
 
 principales = [p for p in PROYECTOS if not p.get('otro')]
 otros = [p for p in PROYECTOS if p.get('otro')]
-leds = ''.join(led_html(p, i) for i, p in enumerate(PROYECTOS))
 html_principales = ''.join(modulo(p, 'izq' if i % 2 == 0 else 'der') for i, p in enumerate(principales))
 html_otros = ''.join(modulo(p, 'izq' if i % 2 == 0 else 'der') for i, p in enumerate(otros))
 
@@ -145,7 +138,7 @@ CSS = r'''
   .placa::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.55;
     background:
       radial-gradient(circle at 1px 1px, rgba(255,255,255,.10) 1.2px, transparent 1.6px) 0 0/22px 22px; }
-  .placa .ancho { position:relative; padding-top:64px; padding-bottom:40px; }
+  .placa .ancho { position:relative; padding-top:72px; padding-bottom:64px; }
   .placa h1 { font-family:var(--titulo); font-weight:800; font-size:clamp(42px,7.6vw,118px); line-height:.95;
               letter-spacing:-.02em; font-variation-settings:"wdth" 92; }
   .placa h1 span { display:block; }
@@ -153,28 +146,6 @@ CSS = r'''
   .enlaces { margin-top:26px; display:flex; flex-wrap:wrap; gap:10px 22px; font-size:16px; }
   .enlaces a { color:#fff; text-decoration-color:rgba(255,178,26,.7); text-decoration-thickness:2px; text-underline-offset:5px; }
   .enlaces a:hover { color:var(--ambar); }
-
-  /* La protoboard con un LED por proyecto */
-  .proto { margin-top:46px; background:#E9EDF3; border-radius:10px; padding:16px 18px 14px; color:var(--tinta);
-           box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 18px 40px rgba(5,14,40,.35); }
-  .riel { height:4px; border-radius:2px; }
-  .riel.rojo { background:var(--riel-rojo); } .riel.azul { background:var(--riel-azul); }
-  .agujeros { height:12px; margin:6px 0;
-              background:radial-gradient(circle, #9AA6B8 2px, transparent 2.6px) 0 50%/16px 12px repeat-x; }
-  .leds { display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:4px; padding:14px 0 6px;
-          background:radial-gradient(circle, #B6C0CF 2px, transparent 2.6px) 0 0/16px 16px; }
-  .led { display:flex; flex-direction:column; align-items:center; text-decoration:none; color:var(--tinta); padding:4px 2px; border-radius:8px; }
-  .bombillo { width:30px; height:38px; border-radius:15px 15px 4px 4px; position:relative;
-              background:color-mix(in srgb, var(--c) 30%, #6b7383); box-shadow:inset 0 -6px 0 rgba(0,0,0,.18);
-              outline:1px solid rgba(14,26,51,.18); outline-offset:-1px;
-              animation:encender .5s ease-out forwards; animation-delay:calc(.35s + var(--i) * .16s); }
-  .bombillo::after { content:""; position:absolute; left:7px; top:6px; width:7px; height:12px; border-radius:4px; background:rgba(255,255,255,.55); }
-  .patas { width:12px; height:16px; border-left:2px solid #8E99A9; border-right:2px solid #8E99A9; margin-top:-2px; }
-  .led .nom { margin-top:6px; font-family:var(--titulo); font-size:13.5px; font-weight:600; line-height:1.15; text-align:center; }
-  .led:hover .bombillo, .led:focus-visible .bombillo { box-shadow:inset 0 -6px 0 rgba(0,0,0,.12), 0 0 26px 8px color-mix(in srgb, var(--c) 70%, transparent); }
-  @keyframes encender {
-    to { background:var(--c); box-shadow:inset 0 -6px 0 rgba(0,0,0,.12), 0 0 18px 4px color-mix(in srgb, var(--c) 55%, transparent); }
-  }
 
   /* Secciones */
   .seccion { padding:72px 0 8px; }
@@ -243,7 +214,6 @@ CSS = r'''
     body { font-size:16px; }
     .ancho { padding:0 16px; }
     .placa .ancho { padding-top:44px; padding-bottom:28px; }
-    .leds { grid-template-columns:repeat(5,minmax(0,1fr)); row-gap:14px; }
     .modulo, .modulo.der { grid-template-columns:minmax(0,1fr); gap:22px; padding:34px 0; }
     .modulo.der .galeria { order:0; }
     .ampliar { opacity:1; transform:none; font-size:12.5px; }
@@ -252,7 +222,6 @@ CSS = r'''
   }
   @media (prefers-reduced-motion:reduce) {
     html { scroll-behavior:auto; }
-    .bombillo { animation-duration:0s; animation-delay:0s; }
   }
 '''
 
@@ -366,11 +335,6 @@ PAGINA = f'''<!doctype html>
       <a href="https://github.com/Tunuba">GitHub</a>
       <a href="mailto:memitoscorado@gmail.com">memitoscorado@gmail.com</a>
     </nav>
-    <div class="proto" role="navigation" aria-label="Ir a un proyecto">
-      <div class="riel rojo"></div><div class="agujeros"></div>
-      <div class="leds">{leds}</div>
-      <div class="agujeros"></div><div class="riel azul"></div>
-    </div>
   </div>
 </header>
 <main>
