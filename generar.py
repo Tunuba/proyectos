@@ -131,7 +131,7 @@ CSS = r'''
     --fondo:#EEF1F5; --papel:#FFFFFF; --linea:#D5DBE5;
     --ambar:#FFB21A; --riel-rojo:#E0303F; --riel-azul:#2266E8;
     --titulo:"Bricolage Grotesque", "Segoe UI", sans-serif;
-    --texto:"Atkinson Hyperlegible", "Segoe UI", sans-serif;
+    --texto:"Instrument Sans", "Segoe UI", sans-serif;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   html { scroll-behavior:smooth; }
@@ -352,7 +352,7 @@ PAGINA = f'''<!doctype html>
 <meta name="theme-color" content="#16337A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
 <style>{CSS}</style>
 </head>
 <body>
