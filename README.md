@@ -1,6 +1,6 @@
 # Proyectos
 
-Portafolio de José Manuel González Corado, con capturas reales de cada proyecto.
+Mis proyectos, de José Manuel González Corado, con capturas reales de cada uno.
 
 Verlo en https://tunuba.github.io/proyectos/
 

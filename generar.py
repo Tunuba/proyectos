@@ -14,40 +14,40 @@ e = html.escape
 # Cada proyecto tiene su color (el de un LED); marca su punto y su miniatura activa.
 PROYECTOS = [
     dict(id='ledkid', nombre='LEDKID', anio='2026', tipo='Proyecto propio', led='#FFB21A',
-         desc='Plataforma para enseñar robótica en colegios. El alumno arma circuitos con piezas reales, '
+         desc='Hice una plataforma para enseñar robótica en colegios. El alumno arma circuitos con piezas reales, '
               'los simula con su física, programa la ESP32 en el mismo lugar y avanza por una academia de niveles por grado.',
          tec=['Vue', 'Go', 'MySQL', 'Three.js', 'ESP32'],
          enlace=('Probar LEDKID en vivo', 'https://ledkid.com')),
     dict(id='mesh', nombre='Mesh', anio='2026', tipo='Proyecto en equipo, universidad', led='#3D8BFF',
-         desc='Tienda en línea donde varios vendedores ofrecen el mismo producto. Cada una de sus seis bases de datos '
+         desc='Hicimos una tienda en línea donde varios vendedores ofrecen el mismo producto. Cada una de sus seis bases de datos '
               'guarda lo que mejor maneja, y el sistema detecta fraude en reseñas y en inicios de sesión.',
          tec=['NestJS', 'SvelteKit', 'PostgreSQL', 'MongoDB', 'Redis', 'Neo4j', 'Elasticsearch', 'ClickHouse']),
     dict(id='videos3d', nombre='Edición de videos 3D', corto='Videos 3D', anio='2026', tipo='Proyecto propio', led='#FF4FB4',
-         desc='Intros de logo y videos animados en 3D hechos por código. Cada escena es un script de Python que arma '
+         desc='Hago intros de logo y videos animados en 3D por código. Cada escena es un script de Python que arma '
               'los modelos, las luces, la cámara y el sonido, y se renderiza con la tarjeta gráfica.',
          tec=['Blender', 'Python', 'ffmpeg']),
     dict(id='reservas', nombre='Sistema de reservas de viajes', corto='Reservas', anio='2026', tipo='Proyecto en equipo, universidad', led='#2BD47D',
-         desc='Tres sistemas que se conectan entre sí, una aerolínea, una cadena de hoteles y una agencia que vende '
+         desc='Hicimos tres sistemas que se conectan entre sí, una aerolínea, una cadena de hoteles y una agencia que vende '
               'vuelos, hoteles y paquetes de los dos. Cada uno tiene su propia API, su base de datos y pruebas automáticas.',
          tec=['C# .NET', 'Java', 'Go', 'Svelte', 'Vue', 'SQL Server', 'Oracle', 'Docker']),
     dict(id='camaras', nombre='Sistema de múltiples cámaras', corto='Cámaras', anio='2025', tipo='Proyecto en equipo, universidad', led='#FF4438',
-         desc='Sigue a varias personas en tiempo real con dos o más cámaras. Detecta a cada persona con YOLO, junta lo '
+         desc='Hicimos un sistema que sigue a varias personas en tiempo real con dos o más cámaras. Detecta a cada persona con YOLO, junta lo '
               'que ve cada cámara y dibuja los recorridos en un mapa del piso medido en metros.',
          tec=['Python', 'YOLO', 'OpenCV']),
     dict(id='pineed', nombre='PINEED', anio='2024', tipo='Proyecto en equipo, universidad', led='#E4EBFF',
-         desc='Sistema de escritorio para una distribuidora de alimento para ganado. Lleva camiones, pilotos, clientes, '
+         desc='Hicimos un sistema de escritorio para una distribuidora de alimento para ganado. Lleva camiones, pilotos, clientes, '
               'inventario, pedidos, ventas, planilla y un calendario de viajes.',
          tec=['Java', 'Swing', 'NetBeans']),
     dict(id='pixeles', nombre='PIXELES', anio='2026', tipo='Proyecto propio', led='#7CE04A', otro=True,
-         desc='Motor que genera pixel art por código, desde personajes animados hasta edificios y efectos. Con él armé '
+         desc='Hice un motor que genera pixel art por código, desde personajes animados hasta edificios y efectos. Con él armé '
               'una ciudad que crece sola y que se puede recorrer en 3D.',
          tec=['Python', 'Pillow', 'JavaScript', 'Three.js']),
     dict(id='mipix', nombre='MIPIX', anio='2025', tipo='Proyecto propio', led='#29D9E8', otro=True,
-         desc='Plataforma web de videojuegos con registro de usuarios, panel personal y un centro con varios juegos, '
+         desc='Hice una plataforma web de videojuegos con registro de usuarios, panel personal y un centro con varios juegos, '
               'entre ellos un shooter multijugador en tiempo real.',
          tec=['Angular', 'TypeScript', 'Node.js', 'Socket.io', 'MongoDB']),
     dict(id='petchan', nombre='Pet-Chan', anio='2025', tipo='Proyecto en equipo, universidad', led='#A970FF', otro=True,
-         desc='Red social de mascotas virtuales. Cada usuario cuida a su mascota de pixel, la viste con lo que compra '
+         desc='Hicimos una red social de mascotas virtuales. Cada usuario cuida a su mascota de pixel, la viste con lo que compra '
               'en la tienda, publica en foros, entra a comunidades y juega minijuegos.',
          tec=['Node.js', 'Express', 'PostgreSQL', 'EJS']),
 ]
@@ -317,7 +317,7 @@ PAGINA = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proyectos de José Manuel González Corado</title>
-<meta name="description" content="Portafolio de José Manuel González Corado, estudiante de Ingeniería en Sistemas en Guatemala que trabajó como profesor de robótica.">
+<meta name="description" content="Soy José Manuel González Corado, estudio Ingeniería en Sistemas en Guatemala y trabajé como profesor de robótica. Estos son mis proyectos.">
 <meta name="theme-color" content="#16337A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -373,7 +373,7 @@ PAGINA = f'''<!doctype html>
 with open(os.path.join(RAIZ, 'index.html'), 'w', encoding='utf-8') as f:
     f.write(PAGINA)
 with open(os.path.join(RAIZ, 'README.md'), 'w', encoding='utf-8') as f:
-    f.write('# Proyectos\n\nPortafolio de José Manuel González Corado, con capturas reales de cada proyecto.\n\n'
+    f.write('# Proyectos\n\nMis proyectos, de José Manuel González Corado, con capturas reales de cada uno.\n\n'
             'Verlo en https://tunuba.github.io/proyectos/\n\n'
             'La página se arma con `python generar.py` a partir de las carpetas de `capturas/`.\n')
 print('index.html listo,', len(PROYECTOS), 'proyectos')
